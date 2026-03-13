@@ -4,7 +4,7 @@
     {
       "name": "gas-price-mapo",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8080"],
+      "runtimeArgs": ["-m", "http.server", "8080", "--directory", "/Users/hayeon/Desktop/바이브코딩folder/gas-price-mapo"],
       "port": 8080
     }
   ]

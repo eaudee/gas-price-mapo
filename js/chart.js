@@ -5,7 +5,7 @@ function initChart() {
     const ctx = document.getElementById('priceChart');
     if (!ctx) return;
 
-    const trend = getPriceTrend();
+    const trend = getPriceTrend('all');
 
     priceChart = new Chart(ctx, {
         type: 'line',
@@ -13,8 +13,8 @@ function initChart() {
             labels: trend.labels,
             datasets: [
                 {
-                    label: '마포구 평균',
-                    data: trend.mapo,
+                    label: trend.guName + ' 평균',
+                    data: trend.gu,
                     borderColor: '#2563eb',
                     backgroundColor: 'rgba(37, 99, 235, 0.08)',
                     fill: true,
@@ -92,4 +92,13 @@ function initChart() {
             }
         }
     });
+}
+
+function updateChart(gu) {
+    if (!priceChart) return;
+    const trend = getPriceTrend(gu);
+    priceChart.data.datasets[0].label = trend.guName + ' 평균';
+    priceChart.data.datasets[0].data = trend.gu;
+    priceChart.data.datasets[1].data = trend.seoul;
+    priceChart.update();
 }

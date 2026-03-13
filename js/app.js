@@ -15,6 +15,12 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('searchInput').addEventListener('input', applyFilters);
     document.getElementById('sortSelect').addEventListener('change', applyFilters);
     document.getElementById('typeFilter').addEventListener('change', applyFilters);
+    document.getElementById('guFilter').addEventListener('change', function () {
+        const gu = this.value;
+        applyFilters();
+        focusGu(gu);
+        updateChart(gu);
+    });
 
     // 모바일 탭 전환
     document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -45,8 +51,9 @@ function applyFilters() {
     const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
     const sortBy = document.getElementById('sortSelect').value;
     const typeFilter = document.getElementById('typeFilter').value;
+    const guFilter = document.getElementById('guFilter').value;
 
-    let filtered = getStations();
+    let filtered = getStations(guFilter);
 
     // 이름 검색
     if (searchTerm) {
