@@ -1,0 +1,372 @@
+/* ===== Reset & Base ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans KR', sans-serif;
+    background: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* ===== Header ===== */
+.header {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    padding: 24px 20px;
+    text-align: center;
+}
+
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.subtitle {
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+/* ===== Filter Bar ===== */
+.filter-bar {
+    background: white;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 16px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.filter-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.search-box input {
+    padding: 10px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    width: 240px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.search-box input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.filter-group {
+    display: flex;
+    gap: 8px;
+}
+
+.filter-group select {
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    background: white;
+    cursor: pointer;
+    outline: none;
+}
+
+.filter-group select:focus {
+    border-color: #2563eb;
+}
+
+.summary-info {
+    margin-left: auto;
+    font-size: 14px;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.summary-info strong {
+    color: #2563eb;
+    font-weight: 700;
+}
+
+.divider {
+    color: #d1d5db;
+}
+
+/* ===== Mobile Tabs ===== */
+.mobile-tabs {
+    display: none;
+    padding: 12px 20px;
+    gap: 8px;
+    background: white;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: white;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.tab-btn.active {
+    background: #2563eb;
+    color: white;
+    border-color: #2563eb;
+}
+
+/* ===== Main Content ===== */
+.main-content {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    min-height: 500px;
+}
+
+/* ===== Station List ===== */
+.station-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 600px;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+.station-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.station-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.station-list::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+}
+
+.station-card {
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+}
+
+.station-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+}
+
+.station-card.active {
+    border-color: #2563eb;
+}
+
+.station-card.cheapest {
+    border-color: #16a34a;
+    background: #f0fdf4;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+
+.station-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.station-type {
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+.station-type.self {
+    background: #dbeafe;
+    color: #2563eb;
+}
+
+.station-type.full {
+    background: #f1f5f9;
+    color: #64748b;
+}
+
+.station-address {
+    font-size: 13px;
+    color: #94a3b8;
+    margin-bottom: 12px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.price span {
+    font-size: 14px;
+    font-weight: 400;
+    color: #94a3b8;
+}
+
+.price-diff {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.price-diff.positive {
+    color: #dc2626;
+}
+
+.price-diff.cheapest-badge {
+    color: #16a34a;
+    font-weight: 600;
+}
+
+/* ===== Map ===== */
+.map-container {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+#map {
+    width: 100%;
+    height: 600px;
+}
+
+/* ===== Chart Section ===== */
+.chart-section {
+    padding: 40px 20px;
+    background: white;
+    margin-top: 20px;
+}
+
+.chart-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #1e293b;
+}
+
+.chart-wrapper {
+    max-height: 400px;
+    position: relative;
+}
+
+/* ===== Footer ===== */
+.footer {
+    text-align: center;
+    padding: 24px 20px;
+    color: #94a3b8;
+    font-size: 13px;
+    border-top: 1px solid #e2e8f0;
+    margin-top: 20px;
+}
+
+/* ===== No Results ===== */
+.no-results {
+    text-align: center;
+    padding: 60px 20px;
+    color: #94a3b8;
+    font-size: 15px;
+    grid-column: 1 / -1;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .header {
+        padding: 20px 16px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .filter-inner {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-box input {
+        width: 100%;
+    }
+
+    .summary-info {
+        margin-left: 0;
+        justify-content: center;
+    }
+
+    .mobile-tabs {
+        display: flex;
+    }
+
+    .main-content {
+        grid-template-columns: 1fr;
+        padding: 0 16px;
+        margin: 12px auto;
+    }
+
+    .map-container {
+        display: none;
+    }
+
+    .map-container.show {
+        display: block;
+    }
+
+    .station-list.hide {
+        display: none;
+    }
+
+    #map {
+        height: 450px;
+    }
+
+    .station-list {
+        max-height: none;
+    }
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마포구 주유비 비교</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <!-- 헤더 -->
+    <header class="header">
+        <div class="header-inner">
+            <h1 class="logo">⛽ 마포구 주유비 비교</h1>
+            <p class="subtitle">마포구 주유소 휘발유 가격을 한눈에 비교하세요</p>
+        </div>
+    </header>
+
+    <!-- 필터 영역 -->
+    <section class="filter-bar">
+        <div class="filter-inner">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="주유소 이름 검색..." />
+            </div>
+            <div class="filter-group">
+                <select id="sortSelect">
+                    <option value="price-asc">가격 낮은순</option>
+                    <option value="price-desc">가격 높은순</option>
+                    <option value="name">이름순</option>
+                </select>
+                <select id="typeFilter">
+                    <option value="all">전체</option>
+                    <option value="self">셀프</option>
+                    <option value="full">일반</option>
+                </select>
+            </div>
+            <div class="summary-info">
+                <span id="stationCount">0개 주유소</span>
+                <span class="divider">|</span>
+                <span>최저가 <strong id="lowestPrice">-</strong>원</span>
+                <span class="divider">|</span>
+                <span>평균 <strong id="avgPrice">-</strong>원</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 메인 콘텐츠 -->
+    <main class="main-content">
+        <!-- 모바일 탭 -->
+        <div class="mobile-tabs">
+            <button class="tab-btn active" data-tab="list">목록</button>
+            <button class="tab-btn" data-tab="map">지도</button>
+        </div>
+
+        <!-- 주유소 목록 -->
+        <section class="station-list" id="stationList">
+            <!-- JS로 렌더링 -->
+        </section>
+
+        <!-- 지도 -->
+        <section class="map-container" id="mapSection">
+            <div id="map"></div>
+        </section>
+    </main>
+
+    <!-- 차트 영역 -->
+    <section class="chart-section">
+        <div class="chart-inner">
+            <h2 class="section-title">최근 7일 가격 추이</h2>
+            <div class="chart-wrapper">
+                <canvas id="priceChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+        <p>데이터 출처: 샘플 데이터 (OPINET API 연동 예정) | 마포구 주유비 비교 서비스</p>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/chart.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
